@@ -32,9 +32,15 @@ h3 {
   font-weight: 200;
   margin-top: 0;
   text-transform: uppercase;
-  padding: 10px 30px;
+  padding: 10px;
   background-color: #919191;
   /* color: white; */
+  margin-bottom: 0;
+}
+
+.profile-goal {
+  background-color: floralwhite;
+  border-bottom: .5px solid #919191;
 }
 
 .route-container {
@@ -122,6 +128,12 @@ h3 {
 }
 
 .loginpage-form-container ul li input {
+  border: 2px solid #ff6e6e;
+  border-radius: 5%;
+  font-size: 65%;
+}
+
+.input-field {
   border: 2px solid #ff6e6e;
   border-radius: 5%;
   font-size: 65%;

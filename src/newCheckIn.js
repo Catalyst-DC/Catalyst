@@ -17,8 +17,8 @@ class NewCheckIn extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <h1>Add new checkin</h1>
-                <input type="text" onChange={(event) => this.setState({ checkInText: event.target.value })} />
+                <h2>Add new checkin:</h2>
+                <input className="input-field" type="text" onChange={(event) => this.setState({ checkInText: event.target.value })} />
                 {/* <select>
                     {this.props.goals.map(goal => {
                         return <option value={goal.goalid}> {goal.goalname} </option>
