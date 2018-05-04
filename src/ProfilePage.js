@@ -53,7 +53,7 @@ class ProfilePage extends Component  {
     saveRenderCheckins = () => {
         if(this.state.recentCheckIns.length > 0) {
             return this.state.recentCheckIns.map((checkin, i) => {
-            return <li key={i}>{ checkin.description }</li>
+            return <li className="profile-goal" key={i}>{ checkin.description }</li>
         })
         }
     }
@@ -61,7 +61,7 @@ class ProfilePage extends Component  {
     saveRenderGoals = () => {
         if(this.state.recentGoals.length > 0) {
             return this.state.recentGoals.map((goal, i) => {
-            return <li key={i}>{ goal.goalname }</li>
+            return <li className="profile-goal" key={i}>{ goal.goalname }</li>
         })
         }
     }
@@ -73,31 +73,26 @@ class ProfilePage extends Component  {
         return (
             <div>
                 <img alt="profile-img" src={this.state.image} />
-                <h1>Upload your photo:</h1>
+                <h4>Upload your photo:</h4>
                 <input type="file" onChange={(event) => {
                     let file = event.target.files[0];
                     let url = URL.createObjectURL(file);
                     // console.log(file) 
                     this.setState({ image: url }) }} />
                 {/* {console.log(this.state.image)} */}
+               
+                <h3>My personal goals</h3>
                 <div>
-                    <h3>My personal goals</h3>
                     <Link to='/main/create-goal'><i className="fas fa-plus-circle fa-2x"></i></Link>
                 </div>
                 {/* List of goals */}
                 {this.saveRenderGoals()}
-                <div>
-                </div>
                 {/* My recest checkins '+'(Add) button on the same line */}
-                <div>
-                    <h3>My recent checkins</h3>
-                    <i className="fas fa-plus-circle fa-2x" onClick={() => this.setState({ writingCheckIn: !this.state.writingCheckIn })}></i>
-                    {this.state.writingCheckIn ? <NewCheckIn handleSubmit={(text) => this.setState({ recentCheckIns: [{description: text}, ...this.state.recentCheckIns], writingCheckIn: false })} /> : null }
-                </div>
+                <h3>My recent checkins</h3>   
                 {/* List of checkins */}
                 {this.saveRenderCheckins()}
-                <div>
-                </div>
+                <i className="fas fa-plus-circle fa-2x" onClick={() => this.setState({ writingCheckIn: !this.state.writingCheckIn })}></i>
+                {this.state.writingCheckIn ? <NewCheckIn handleSubmit={(text) => this.setState({ recentCheckIns: [{description: text}, ...this.state.recentCheckIns], writingCheckIn: false })} /> : null }
             </div>
         )
     }
